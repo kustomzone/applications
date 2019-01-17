@@ -71,7 +71,10 @@ class GoogleMapsPopup extends React.Component {
   assembleFilters = (filtersResponse, skosConceptsResponse) => {
     return filtersResponse.map(property => {
       return {
-        property: { uri: property.uri, label: property.label.variants.cs },
+        property: {
+          uri: property.uri !== null ? property.uri : "",
+          label: property.label !== null ? property.label.variants.cs : ""
+        },
         type: filterTypes.CHECKBOX,
         enabled: true,
         expanded: true,
