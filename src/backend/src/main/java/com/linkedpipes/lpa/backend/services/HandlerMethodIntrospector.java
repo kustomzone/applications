@@ -57,7 +57,7 @@ public class HandlerMethodIntrospector extends RequestMappingHandlerMapping {
         return new HandlerMethodUriBuilder(methodInfo);
     }
 
-    private static class HandlerMethodInfo  {
+    private static class HandlerMethodInfo {
         @NotNull
         private final Set<String> uriPatterns;
         @NotNull
@@ -152,7 +152,7 @@ public class HandlerMethodIntrospector extends RequestMappingHandlerMapping {
                     .collect(toUnmodifiableSet());
         }
 
-        private boolean isUnassigned(RequestParam requestParam) {
+        private boolean isUnassigned(@NotNull RequestParam requestParam) {
             return requestParam.required() &&
                     Objects.equals(requestParam.defaultValue(), ValueConstants.DEFAULT_NONE) &&
                     !requestParams.containsKey(requestParam.name());

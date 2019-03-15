@@ -1,6 +1,5 @@
 package com.linkedpipes.lpa.backend.services;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.linkedpipes.lpa.backend.Application;
 import com.linkedpipes.lpa.backend.entities.Execution;
 import com.linkedpipes.lpa.backend.entities.ExecutionStatus;
@@ -8,12 +7,8 @@ import com.linkedpipes.lpa.backend.exceptions.LpAppsException;
 import com.linkedpipes.lpa.backend.util.HttpRequestSender;
 import com.linkedpipes.lpa.backend.util.LpAppsObjectMapper;
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
-
-import java.text.SimpleDateFormat;
 
 import static com.linkedpipes.lpa.backend.util.UrlUtils.urlFrom;
 
@@ -23,11 +18,7 @@ import static com.linkedpipes.lpa.backend.util.UrlUtils.urlFrom;
 @Service
 public class EtlServiceComponent implements EtlService {
 
-    private static final Logger logger = LoggerFactory.getLogger(ExecutorServiceComponent.class);
-
-    private static final LpAppsObjectMapper OBJECT_MAPPER = new LpAppsObjectMapper(
-            new ObjectMapper()
-                    .setDateFormat(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS")));
+    private static final LpAppsObjectMapper OBJECT_MAPPER = new LpAppsObjectMapper();
 
     private final ApplicationContext context;
     private final HttpActions httpActions = new HttpActions();
@@ -45,9 +36,7 @@ public class EtlServiceComponent implements EtlService {
     @Override
     public ExecutionStatus getExecutionStatus(String executionIri) throws LpAppsException {
         String response = httpActions.getExecutionStatus(executionIri);
-        ExecutionStatus executionStatus = OBJECT_MAPPER.readValue(response, ExecutionStatus.class);
-        System.out.println("executionStatus = " + executionStatus);
-        return executionStatus;
+        return OBJECT_MAPPER.readValue(response, ExecutionStatus.class);
     }
 
     @Override
