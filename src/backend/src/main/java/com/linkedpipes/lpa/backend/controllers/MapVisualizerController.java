@@ -1,8 +1,10 @@
 package com.linkedpipes.lpa.backend.controllers;
 
 import com.linkedpipes.lpa.backend.entities.MapQueryData;
+import com.linkedpipes.lpa.backend.entities.geo.Coordinates;
 import com.linkedpipes.lpa.backend.entities.geo.Marker;
 import com.linkedpipes.lpa.backend.exceptions.LpAppsException;
+import com.linkedpipes.lpa.backend.rdf.LocalizedValue;
 import com.linkedpipes.lpa.backend.rdf.Property;
 import com.linkedpipes.lpa.backend.services.geo.GeoService;
 import com.linkedpipes.lpa.backend.sparql.ValueFilter;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -50,6 +53,21 @@ public class MapVisualizerController {
         }
         logger.info("Done listing filters");
         return ResponseEntity.ok(geoService.getMarkers(graphIri, mapQueryData.filters));
+    }
+
+    @GetMapping("/api/map/dummymarkers")
+    public ResponseEntity<List<Marker>> getDummyMarkers(@Nullable @RequestParam(value = "numberOfMarkers") int numberOfMarkers) {
+
+        List<Marker> markers = new ArrayList<>();
+
+        for(int i=0; i < numberOfMarkers; i++){
+            //generate dummy markers
+            Coordinates coords = new Coordinates((Math.random() * 180.0) - 90.0, (Math.random() * 360.0) - 180.0);
+            String label = "marker" + Math.random();
+            markers.add(new Marker("http://www.test.com/" + label, coords, new LocalizedValue(label), null));
+        }
+
+        return ResponseEntity.ok(markers);
     }
 
     @GetMapping("/api/map/properties")
