@@ -1,4 +1,4 @@
-package com.linkedpipes.lpa.backend.services;
+package com.linkedpipes.lpa.backend.services.interfaces;
 
 import com.linkedpipes.lpa.backend.entities.visualization.*;
 import com.linkedpipes.lpa.backend.exceptions.LpAppsException;
