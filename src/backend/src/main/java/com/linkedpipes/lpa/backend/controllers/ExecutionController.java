@@ -1,7 +1,7 @@
 package com.linkedpipes.lpa.backend.controllers;
 
 import com.linkedpipes.lpa.backend.exceptions.LpAppsException;
-import com.linkedpipes.lpa.backend.services.EtlService;
+import com.linkedpipes.lpa.backend.services.interfaces.EtlService;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.ResponseEntity;

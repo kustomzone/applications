@@ -52,6 +52,12 @@ public class MapVisualizerController {
         return ResponseEntity.ok(geoService.getMarkers(graphIri, mapQueryData.filters));
     }
 
+    /**
+     * Get data properties useful for client-side data filtering
+     * @param graphIri
+     * @return
+     * @throws LpAppsException
+     */
     @GetMapping("/api/map/properties")
     public ResponseEntity<List<Property>> getProperties(@Nullable @RequestParam(value = "resultGraphIri", required = false) String graphIri) throws LpAppsException {
         return ResponseEntity.ok(GeoService.getProperties(graphIri));

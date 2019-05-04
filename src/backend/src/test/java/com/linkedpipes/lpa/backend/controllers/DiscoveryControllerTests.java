@@ -1,15 +1,9 @@
 package com.linkedpipes.lpa.backend.controllers;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.linkedpipes.lpa.backend.Application;
 import com.linkedpipes.lpa.backend.entities.DataSource;
 import com.linkedpipes.lpa.backend.entities.Discovery;
 import com.linkedpipes.lpa.backend.exceptions.LpAppsException;
-import com.linkedpipes.lpa.backend.services.UserService;
-import com.linkedpipes.lpa.backend.testutil.TestError;
-import com.linkedpipes.lpa.backend.util.LpAppsObjectMapper;
-import com.linkedpipes.lpa.backend.util.ThrowableUtils;
+import com.linkedpipes.lpa.backend.services.interfaces.UserService;
 import org.junit.BeforeClass;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -18,9 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.util.StreamUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;

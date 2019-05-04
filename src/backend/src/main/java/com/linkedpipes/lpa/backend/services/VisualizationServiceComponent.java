@@ -2,6 +2,7 @@ package com.linkedpipes.lpa.backend.services;
 
 import com.linkedpipes.lpa.backend.entities.visualization.*;
 import com.linkedpipes.lpa.backend.exceptions.LpAppsException;
+import com.linkedpipes.lpa.backend.services.interfaces.VisualizationService;
 import com.linkedpipes.lpa.backend.sparql.extractors.visualization.*;
 import com.linkedpipes.lpa.backend.sparql.queries.ConstructSparqlQueryProvider;
 import com.linkedpipes.lpa.backend.sparql.queries.SelectSparqlQueryProvider;

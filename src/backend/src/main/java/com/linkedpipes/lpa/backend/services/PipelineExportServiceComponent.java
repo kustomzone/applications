@@ -7,6 +7,8 @@ import com.linkedpipes.lpa.backend.entities.database.PipelineInformationDao;
 import com.linkedpipes.lpa.backend.entities.database.PipelineInformationRepository;
 import com.linkedpipes.lpa.backend.exceptions.LpAppsException;
 import com.linkedpipes.lpa.backend.exceptions.PipelineNotFoundException;
+import com.linkedpipes.lpa.backend.services.interfaces.DiscoveryService;
+import com.linkedpipes.lpa.backend.services.interfaces.PipelineExportService;
 import com.linkedpipes.lpa.backend.util.ThrowableUtils;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;

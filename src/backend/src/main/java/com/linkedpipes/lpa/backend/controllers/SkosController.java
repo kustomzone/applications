@@ -2,7 +2,7 @@ package com.linkedpipes.lpa.backend.controllers;
 
 import com.linkedpipes.lpa.backend.entities.visualization.*;
 import com.linkedpipes.lpa.backend.exceptions.LpAppsException;
-import com.linkedpipes.lpa.backend.services.VisualizationService;
+import com.linkedpipes.lpa.backend.services.interfaces.VisualizationService;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.springframework.context.ApplicationContext;

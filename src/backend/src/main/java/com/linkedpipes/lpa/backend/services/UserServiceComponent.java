@@ -2,11 +2,11 @@ package com.linkedpipes.lpa.backend.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import com.linkedpipes.lpa.backend.entities.*;
 import com.linkedpipes.lpa.backend.entities.profile.*;
 import com.linkedpipes.lpa.backend.entities.database.*;
 import com.linkedpipes.lpa.backend.exceptions.UserNotFoundException;
 import com.linkedpipes.lpa.backend.exceptions.LpAppsException;
+import com.linkedpipes.lpa.backend.services.interfaces.UserService;
 import com.linkedpipes.lpa.backend.util.LpAppsObjectMapper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

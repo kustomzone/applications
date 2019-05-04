@@ -9,6 +9,10 @@ import com.linkedpipes.lpa.backend.entities.profile.*;
 import com.linkedpipes.lpa.backend.exceptions.LpAppsException;
 import com.linkedpipes.lpa.backend.exceptions.UserNotFoundException;
 import com.linkedpipes.lpa.backend.exceptions.PollingCompletedException;
+import com.linkedpipes.lpa.backend.services.interfaces.DiscoveryService;
+import com.linkedpipes.lpa.backend.services.interfaces.EtlService;
+import com.linkedpipes.lpa.backend.services.interfaces.ExecutorService;
+import com.linkedpipes.lpa.backend.services.interfaces.UserService;
 import com.linkedpipes.lpa.backend.util.LpAppsObjectMapper;
 
 import org.jetbrains.annotations.NotNull;

@@ -8,6 +8,7 @@ import com.linkedpipes.lpa.backend.Application;
 import com.linkedpipes.lpa.backend.constants.Visualizers;
 import com.linkedpipes.lpa.backend.entities.*;
 import com.linkedpipes.lpa.backend.exceptions.LpAppsException;
+import com.linkedpipes.lpa.backend.services.interfaces.DiscoveryService;
 import com.linkedpipes.lpa.backend.util.HttpRequestSender;
 import com.linkedpipes.lpa.backend.util.LpAppsObjectMapper;
 import com.linkedpipes.lpa.backend.util.Streams;

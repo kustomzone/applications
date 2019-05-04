@@ -5,10 +5,10 @@ import com.linkedpipes.lpa.backend.entities.PipelineExportResult;
 import com.linkedpipes.lpa.backend.exceptions.LpAppsException;
 import com.linkedpipes.lpa.backend.exceptions.PipelineNotFoundException;
 import com.linkedpipes.lpa.backend.exceptions.UserNotFoundException;
-import com.linkedpipes.lpa.backend.services.DiscoveryService;
-import com.linkedpipes.lpa.backend.services.ExecutorService;
-import com.linkedpipes.lpa.backend.services.PipelineExportService;
-import com.linkedpipes.lpa.backend.services.UserService;
+import com.linkedpipes.lpa.backend.services.interfaces.DiscoveryService;
+import com.linkedpipes.lpa.backend.services.interfaces.ExecutorService;
+import com.linkedpipes.lpa.backend.services.interfaces.PipelineExportService;
+import com.linkedpipes.lpa.backend.services.interfaces.UserService;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,6 +38,12 @@ public class PipelineController {
         pipelineExportService = context.getBean(PipelineExportService.class);
     }
 
+    /**
+     * Get pipeline identified by IRI
+     * @param pipelineIri
+     * @return
+     * @throws LpAppsException
+     */
     @GetMapping("/api/pipeline")
     public ResponseEntity<PipelineExportResult> getPipeline(@RequestParam(value = "pipelineIri") String pipelineIri) throws LpAppsException {
         try {

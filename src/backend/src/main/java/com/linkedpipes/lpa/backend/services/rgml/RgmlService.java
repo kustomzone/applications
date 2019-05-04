@@ -43,6 +43,7 @@ public class RgmlService {
         return JenaUtils.withQueryExecution(provider.get(graphIri), EdgesExtractor::extract);
     }
 
+    /** Get edges incident to a particular node */
     private List<Edge> getIncidentEdges(@Nullable String graphIri, @NotNull Graph graph, String nodeUri, EdgeDirection direction) throws LpAppsException {
         if (direction == null)
             return fetchAllEdges(graphIri, nodeUri);
@@ -54,11 +55,13 @@ public class RgmlService {
         return fetchAllEdges(graphIri, nodeUri);
     }
 
+    /** Fetch edges by direction */
     private List<Edge> fetchEdges(@Nullable String graphIri, String nodeUri, EdgeDirection direction) throws LpAppsException {
         ConstructSparqlQueryProvider provider = new IncidentEdgesQueryProvider(nodeUri, direction);
         return JenaUtils.withQueryExecution(provider.get(graphIri), EdgesExtractor::extract);
     }
 
+    /** Fetch all edges regardless of direction */
     private List<Edge> fetchAllEdges(@Nullable String graphIri, String nodeUri) throws LpAppsException {
         List<Edge> edges = fetchEdges(graphIri, nodeUri, EdgeDirection.INCOMING);
         edges.addAll(fetchEdges(graphIri, nodeUri, EdgeDirection.OUTGOING));
@@ -102,13 +105,6 @@ public class RgmlService {
                                 .getOrDefault(target, 0.0)))
                 .map(DoubleStream::toArray)
                 .toArray(double[][]::new);
-    }
-
-    private <E> Collector<List<E>, ?, List<E>> joiningLists() {
-        return Collector.of(ArrayList::new, List::addAll, (l1, l2) -> {
-            l1.addAll(l2);
-            return l1;
-        });
     }
 
     private void addEdgeToMatrix(Map<String, Map<String, Double>> matrix, String source, String target, boolean useWeights, Double weight){

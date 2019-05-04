@@ -28,6 +28,13 @@ public class DataSourceController {
     @NotNull
     private final TriFunction<String, String, String, ResponseEntity<String>> memoizedGetTemplateDescription = memoize(this::doGetTemplateDescription);
 
+    /**
+     * Get data source template service description
+     * @param sparqlEndpointIri
+     * @param dataSampleIri
+     * @param namedGraph
+     * @return
+     */
     @GetMapping(TEMPLATE_DESCRIPTION_PATH)
     public ResponseEntity<String> getTemplateDescription(@NotNull @RequestParam(SPARQL_ENDPOINT_IRI_PARAM) String sparqlEndpointIri,
                                                          @NotNull @RequestParam(DATA_SAMPLE_IRI_PARAM) String dataSampleIri,
